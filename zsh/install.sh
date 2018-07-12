@@ -17,7 +17,9 @@ then
       # Set the install path to not use the ~/.dotfiles directory
       export ZSH="$OHMYZSH"
       # Install
-      sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+      install="curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+      echo "› $install"
+      sh -c "$install"
       # Move the default zshrc file into .dotfiles
       mv -n "$HOME/.zshrc" "$DOTFILES/zsh/oh-my-zshrc"
   else
@@ -31,7 +33,9 @@ then
   then
       echo "Installing Prezto."
       # Install
-      "$(git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto")"
+      install="git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto""
+      echo "› $install"
+      "$($install)"
       # Move the default zpreztorc file into ~/.dotfiles
       mv -n "$HOME/.zprezto/runcoms/zpreztorc" "$DOTFILES/zsh/zpreztorc.symlink"
   else
