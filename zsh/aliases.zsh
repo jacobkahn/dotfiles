@@ -9,7 +9,7 @@ alias .....="cd ../../../.."
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
-alias p="cd ~/Documents/Programming"
+alias p="$PROJECTS"
 
 # Chrome
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
@@ -29,3 +29,6 @@ alias rm='trash'
 
 # Reload the terminal profile
 alias reload="source ~/.zshrc"
+
+# Modify my dotfiles in my editor
+alias dotfiles="$EDITOR $DOTFILES"

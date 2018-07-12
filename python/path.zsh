@@ -1,7 +1,7 @@
 # virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-# default to python3
+# installed with 2.7
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
 
 # miniconda

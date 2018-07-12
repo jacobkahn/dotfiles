@@ -2,7 +2,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # projets folder
-export PROJECTS=~/Documents/Programming
+export PROJECTS=~/Documents/Projects
 
 # Environment variables found in ~/.localrc that won't be pushed/public
 if [[ -a ~/.localrc ]]
@@ -30,9 +30,14 @@ done
 # should be moved as follows: {.zshrc => $DOTFILES/zsh/oh-my-zshrc}.
 # echo "Hey whatup"
 if [[ -f $DOTFILES/zsh/oh-my-zshrc ]]; then
+  # save aliases so we can recover after the flood
+  local save_aliases=$(alias -L)
+  # source it
   local ZSH="$HOME/.oh-my-zsh"
   source $DOTFILES/zsh/oh-my-zshrc
   export OHMYZSH="$ZSH"
+  # recover aliases
+  eval $save_aliases
 else
   # initialize autocomplete here, otherwise functions won't be loaded
   autoload -U compinit

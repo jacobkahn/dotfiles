@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.json.symlink": "jsonc",
-        "*.symlink": "shellscript"
+        "*.symlink": "shellscript",
+        "**/bin/*": "shellscript",
     }
 }

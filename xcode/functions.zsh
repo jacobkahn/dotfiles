@@ -1,3 +1,9 @@
+#!/bin/sh
+#
+# Xcode
+#
+# Some helpful Xcode tools
+
 # switch nicely between versions of Xcode [command line tools]
 # assumes different versions of Xcode are installed as "Xcode-[version].app" in /Applications
 xcode-quickselect () {
@@ -29,6 +35,5 @@ xcode-quickselect () {
       versionstring="-$1"
   fi
   # switch
-  echo $versionstring
   $(sudo xcode-select --switch /Applications/Xcode$versionstring.app)
 }
