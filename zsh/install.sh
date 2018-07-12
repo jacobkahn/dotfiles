@@ -6,7 +6,7 @@
 
 echo "Installing shell."
 # Choose the type of shell to install!
-SHELLTYPE="prezto"
+SHELLTYPE="oh-my-zsh"
 # Check if we have an existing version installed in the correct location
 if [ "$SHELLTYPE" = "oh-my-zsh" ]
 then

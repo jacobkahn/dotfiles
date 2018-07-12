@@ -39,7 +39,7 @@ local save_aliases=$(alias -L)
 # Source a shell if we find one is installed, else use custom zsh configs.
 # Install Oh My Zsh in ~/.oh-my-zsh; it defaults to installing to ~/.dotfiles!
 export OHMYZSH="$HOME/.oh-my-zsh"
-if [[ -f "$OHMYZSH" ]]
+if [[ -d "$OHMYZSH" ]]
 then
   # Since Oh My Zsh pollutes zshrc, we need to keep it separate.
   # Installation will have moved that new file here if none existed.

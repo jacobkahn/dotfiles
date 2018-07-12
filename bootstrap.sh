@@ -155,6 +155,10 @@ install_dotfiles () {
   done
 }
 
+##### Install Dotfiles #####
+setup_gitconfig
+install_dotfiles
+
 ##### Install Dependencies #####
 # If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
@@ -168,9 +172,6 @@ then
   fi
 fi
 
-##### Install Dotfiles #####
-setup_gitconfig
-install_dotfiles
 
 echo ''
 echo '  All installed!'
