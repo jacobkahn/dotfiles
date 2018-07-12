@@ -1,0 +1,8 @@
+#!/bin/sh
+#
+# Prezto
+#
+# Generates the placement filepath for custom linking for the Prezto runcom
+echo "$HOME/.zprezto/runcoms/zpreztorc"
+
+exit 0
