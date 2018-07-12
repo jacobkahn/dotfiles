@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# VSCode
+#
+# Generates the placement filepath for custom linking
+if test "$(uname)" = "Darwin"
+then
+  echo "$HOME/Library/Application Support/Code/User/settings.json"
+elif test "$(expr substr $(uname -s) 1 5)" = "Linux"
+then
+  echo "$HOME/.config/Code/User/settings.json"
+fi
+
+exit 0

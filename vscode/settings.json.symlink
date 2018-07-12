@@ -1,0 +1,37 @@
+{
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "One Dark Pro",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.minimap.enabled": false,
+    "editor.wordWrapColumn": 80,
+    "editor.insertSpaces": true,
+    "files.associations": {
+        "*.cu": "cpp"
+    },
+
+    "[cpp]": {
+        "editor.tabSize": 2
+    },
+    "C_Cpp.intelliSenseEngine": "Default",
+    "C_Cpp.clang_format_path": "~/.clang-format",
+    "C_Cpp.default.cppStandard": "c++14",
+
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "javascript.format.insertSpaceAfterCommaDelimiter": true,
+    "typescript.locale": "en",
+
+    "[python]": {
+        "editor.tabSize": 2
+    },
+    "python.venvPath": "~/.virtualenvs",
+    "python.linting.lintOnSave": false,
+    "python.linting.pydocstyleEnabled": true,
+    "python.venvFolders": [
+        "envs",
+        ".pyenv",
+        ".direnv",
+        ".virtualenvs"
+    ],
+}

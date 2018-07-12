@@ -1,0 +1,56 @@
+# Remap C-b to C-a
+unbind C-b
+set-option -g prefix C-a
+bind-key C-a send-prefix
+
+# Split horizontally and vertically based on names
+bind h split-window -h
+bind v split-window -v
+unbind '"'
+unbind %
+
+# Reload conf
+bind r source-file ~/.tmux.conf
+
+# Switch windows via alt-arrow without prefix
+bind -n M-Left select-pane -L
+bind -n M-Right select-pane -R
+bind -n M-Up select-pane -U
+bind -n M-Down select-pane -D
+
+### Look ###
+setw -g clock-mode-colour colour5
+setw -g mode-attr bold
+setw -g mode-fg colour1
+setw -g mode-bg colour18
+# Pane and borders
+set -g pane-border-bg default
+set -g pane-border-fg colour7
+set -g pane-active-border-bg default
+set -g pane-active-border-fg colour9
+# Status bar
+set -g status-position bottom
+set -g status-justify left
+# Color of bottom background bar
+set -g status-bg default
+set -g status-fg colour0
+set -g status-attr dim
+set -g status-left ''
+# Clock
+set -g status-right '#[fg=colour233,bg=colour9,bold] %m/%d #[fg=colour233,bg=colour9,bold] %H:%M:%S '
+set -g status-right-length 50
+set -g status-left-length 20
+
+# Tabs in status bar
+# Numbers next to tabs
+setw -g window-status-current-fg colour9
+setw -g window-status-current-bg colour21
+setw -g window-status-current-attr bold
+# Tab names
+setw -g window-status-current-format ' #I#[fg=colour249]:#[fg=colour255]#W#[fg=colour249]#F '
+# Items near unused tab items
+setw -g window-status-fg colour9
+setw -g window-status-bg colour18
+setw -g window-status-attr none
+setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
+
