@@ -5,4 +5,6 @@ source /usr/local/bin/virtualenvwrapper.sh
 export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
 
 # miniconda
-export PATH="/usr/local/miniconda3/bin:$PATH"
+export PATH="$HOME/miniconda/bin:$PATH"
+. /usr/local/miniconda3/etc/profile.d/conda.sh
+conda activate
