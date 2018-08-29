@@ -15,6 +15,8 @@ alias p="$PROJECTS"
 alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
+# Editors
+alias e='emacs -nw'
 
 ##### Utilities #####
 # Merge PDF files

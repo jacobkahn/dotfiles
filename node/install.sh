@@ -19,6 +19,6 @@ fi
 # https://github.com/sindresorhus/trash
 if test ! $(which trash)
 then
-  $(sudo npm install -g trash)
+  $(sudo npm install -g trash-cli)
 fi
 

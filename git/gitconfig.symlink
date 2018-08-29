@@ -3,7 +3,7 @@
 [push]
 	default = simple
 [core]
-	editor = vim
+	editor = emacs
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

@@ -37,6 +37,7 @@ brew 'eigen'
 brew 'sshfs'
 brew 'imagemagick'
 brew 'hub'
+brew 'mosh'
 
 # Applications, from cask
 # cask 'atom'

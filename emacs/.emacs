@@ -1,0 +1,98 @@
+;; -*- Emacs-Lisp -*-
+;; Some proxy things
+(defvar url-proxy-services
+      '(("no_proxy" . "^\\(localhost\\|10.*\\)")
+        ("http" . "fwdproxy:8080")
+        ("https" . "fwdproxy:8080")))
+
+(defun try-require (name)
+  "Try to require a package called NAME.  Return t/nil success status."
+  (not (null (require name (symbol-name name) t))))
+
+;; Me
+(setq user-full-name "Jacob Kahn")
+(setq user-mail-address "jacobkahn1@gmail.com")
+
+;; MELPA
+(require 'package)
+(let ((melpa '("melpa" . "http://melpa.milkbox.net/packages/")))
+  (add-to-list 'package-archives melpa t))
+(package-initialize)
+
+;; Row and column numbers
+(line-number-mode t)
+(column-number-mode t)
+
+;; Turn off menu bars
+(menu-bar-mode -1)
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
+(when (fboundp `tool-bar-mode)
+  (tool-bar-mode -1))
+
+;; Echo keystrokes
+(setq echo-keystrokes 0.1)
+
+;; Show matching things
+(defvar show-paren-delay 0)
+(show-paren-mode t)
+
+;; Background
+(defun better-frame-background (frame)
+   "Emacs gets confused as to what color some terminals are.
+   Manually set the graphical Emacs to light, because it has a white
+   screen, but all the terminals I use have black backgrounds so set
+   them to dark.  FRAME is passed to 'frame-set-background-mode'."
+     (let ((frame-background-mode (if (display-graphic-p) 'light 'dark)))
+         (frame-set-background-mode frame)))
+
+;; Autosave files to the temp directory
+(setq backup-directory-alist `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms `((".*" ,temporary-file-directory t)))
+
+;; Enable the mouse.
+(xterm-mouse-mode t)
+
+;; Disable all version control.
+(setq vc-handled-backends nil)
+
+;; Always syntax highlight.
+(global-font-lock-mode 1)
+
+;; Default to 2 space indent and replace tabs with spaces.
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+(setq-default fill-column 80)
+
+;; Use C-w for killing words like bash does, and move kill-region to C-q.
+(global-set-key (kbd "C-w") 'backward-kill-word)
+(global-set-key (kbd "C-q") 'kill-region)
+
+;; Treat .h files as C++ files.
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
+;; C++-specific settings
+(defvar c-basic-offset 2)
+
+;; Don't indent on opening a C++ namespace, an extern block, or on case labels.
+(c-set-offset 'inextern-lang 0)
+(c-set-offset 'innamespace 0)
+(c-set-offset 'case-label 0)
+(c-set-offset 'arglist-intro '+)
+(c-set-offset 'arglist-close 0)
+
+;; Clang format
+(load "/usr/local/share/clang/clang-format.el")
+(defun set-clang-format-shortcuts ()
+  "Set keyboard shortcuts for running clang-format."
+  (local-set-key (kbd "C-c r") 'clang-format-region)
+  (local-set-key (kbd "C-c b") 'clang-format-buffer))
+
+(defun init-c++-hook ()
+  "Stuff to run when entering c++-mode."
+  (set-clang-format-shortcuts))
+
+(add-hook 'c++-mode-hook 'init-c++-hook)
+
+(provide 'init)
+

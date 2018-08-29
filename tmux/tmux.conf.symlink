@@ -1,11 +1,12 @@
 # Remap C-b to C-a
 unbind C-b
-set-option -g prefix C-a
-bind-key C-a send-prefix
+set-option -g prefix C-q
+bind-key C-q send-prefix
 
 # Split horizontally and vertically based on names
-bind h split-window -h
-bind v split-window -v
+bind h split-window -h -c "#{pane_current_path}"
+bind v split-window -v -c "#{pane_current_path}"
+bind c new-window -c "#{pane_current_path}"
 unbind '"'
 unbind %
 
@@ -37,7 +38,7 @@ set -g status-fg colour0
 set -g status-attr dim
 set -g status-left ''
 # Clock
-set -g status-right '#[fg=colour233,bg=colour9,bold] %m/%d #[fg=colour233,bg=colour9,bold] %H:%M:%S '
+set -g status-right '#[fg=colour233,bg=colour9,bold] #H #[fg=colour233,bg=colour9,bold] %m/%d #[fg=colour233,bg=colour9,bold] %H:%M:%S '
 set -g status-right-length 50
 set -g status-left-length 20
 
@@ -54,3 +55,7 @@ setw -g window-status-bg colour18
 setw -g window-status-attr none
 setw -g window-status-format ' #I#[fg=colour237]:#[fg=colour250]#W#[fg=colour244]#F '
 
+# Session/mosh things
+new-session
+set-option -g mouse on
+set -g history-limit 30000
