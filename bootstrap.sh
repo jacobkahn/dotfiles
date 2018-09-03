@@ -32,6 +32,18 @@ error () {
   echo ''
 }
 
+# Arguments
+INSTALL_DEPS=true;
+# Parse
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    # Don't install dependencies
+    -n|--nodeps) INSTALL_DEPS=false; shift 1;;
+    -*) echo "unknown option: $1" >&2; exit 1;;
+    *) handle_argument "$1"; shift 1;;
+  esac
+done
+
 setup_gitconfig () {
   if ! [ -f git/gitconfig.local.symlink ]
   then
@@ -155,23 +167,31 @@ install_dotfiles () {
   done
 }
 
-##### Install Dotfiles #####
+install_dependencies () {
+  # Setup homebrew if on a Mac
+  if [ "$(uname -s)" == "Darwin" ]
+  then
+    info "installing dependencies"
+    if source bin/dot | while read -r data; do info "$data"; done
+    then
+      success "dependencies installed"
+    else
+      fail "error installing dependencies"
+    fi
+  fi
+}
+
+##### Dotfiles #####
 setup_gitconfig
 install_dotfiles
-
-##### Install Dependencies #####
-# If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
+##### Dependencies #####
+if [ "$INSTALL_DEPS" == "true" ]
 then
-  info "installing dependencies"
-  if source bin/dot | while read -r data; do info "$data"; done
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
+  install_dependencies
+else
+  info "skipping installing dependencies"
 fi
-
+unset INSTALL_DEPS
 
 echo ''
 echo '  All installed!'

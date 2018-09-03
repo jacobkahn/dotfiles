@@ -34,7 +34,6 @@ brew 'sqlite'
 brew 'opencv'
 brew 'eigen'
 # Other frameworks and tools
-brew 'sshfs'
 brew 'imagemagick'
 brew 'hub'
 brew 'mosh'
