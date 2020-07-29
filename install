@@ -5,12 +5,16 @@
 set -e
 
 # Run Homebrew through the Brewfile
-# read -p "     Run brew bundle? y/n " -n 1 -r
-# if [[ $REPLY =~ ^[Yy]$ ]]
-# then
-    echo "› brew bundle"
-    brew bundle    
-# fi
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    read -p "     Run brew bundle? y/n " -n 1 -r
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+        echo "› brew bundle"
+        brew bundle
+    fi
+else
+    echo "Not on macOS - skipping brew bundle."
+fi
 
 # find the installers and run them iteratively
 find . -name install.sh | while read installer ; do sh -c "${installer}" ; done

@@ -11,7 +11,7 @@ SHELLTYPE="oh-my-zsh"
 if [ "$SHELLTYPE" = "oh-my-zsh" ]
 then
   echo "Selected shell is Oh My Zsh."
-  if [ ! -d "$OHMYZSH" ]
+  if [ ! -d "$HOME/.oh-my-zsh" ]
   then
       echo "Installing Oh My Zsh."
       # Set the install path to not use the ~/.dotfiles directory

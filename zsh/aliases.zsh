@@ -26,8 +26,10 @@ alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Re
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
-# Trash/rm - use trash instead of rm
-alias rm='trash'
+# Trash/rm - use trash instead of rm on macOS
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    alias rm='trash'
+fi
 
 # Reload the terminal profile
 alias reload="source ~/.zshrc"

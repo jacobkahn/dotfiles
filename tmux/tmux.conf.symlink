@@ -1,4 +1,4 @@
-# Remap C-b to C-a
+# Remap C-b to C-q
 unbind C-b
 set-option -g prefix C-q
 bind-key C-q send-prefix
@@ -18,6 +18,9 @@ bind -n M-Left select-pane -L
 bind -n M-Right select-pane -R
 bind -n M-Up select-pane -U
 bind -n M-Down select-pane -D
+
+# Prevent renames of already-named windows by processes
+set-option -g allow-rename off
 
 ### Look ###
 setw -g clock-mode-colour colour5
