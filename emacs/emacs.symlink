@@ -81,8 +81,17 @@
 (c-set-offset 'arglist-intro '+)
 (c-set-offset 'arglist-close 0)
 
+;; Subword mode. Enable by default, globally
+;; move cursor by camelCase
+(global-subword-mode 1) ;; 1 for on, 0 for off
+;; make toggleable in individual buffers
+(global-set-key (kbd "C-c C-w") 'subword-mode)
+
+;; Integrations
+(setq load-path (cons (expand-file-name (concat (getenv "DOTFILES") "/emacs/integrations")) load-path))
+
 ;; Clang format
-(load "/usr/local/share/clang/clang-format.el")
+(require 'clang-format)
 (defun set-clang-format-shortcuts ()
   "Set keyboard shortcuts for running clang-format."
   (local-set-key (kbd "C-c r") 'clang-format-region)
@@ -93,6 +102,9 @@
   (set-clang-format-shortcuts))
 
 (add-hook 'c++-mode-hook 'init-c++-hook)
+
+;; CMake
+(require 'cmake-mode)
 
 (provide 'init)
 

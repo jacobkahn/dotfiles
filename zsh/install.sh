@@ -19,7 +19,7 @@ then
       # Install
       install="curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
       echo "› $install"
-      sh -c "$install"
+      sh -c "$(install)"
       # Move the default zshrc file into .dotfiles
       mv -n "$HOME/.zshrc" "$DOTFILES/zsh/oh-my-zshrc"
   else

@@ -1,2 +1,5 @@
 # local gitconfig
 git/gitconfig.local.symlink
+
+# emacs integration files (downloaded on install)
+emacs/integrations/
