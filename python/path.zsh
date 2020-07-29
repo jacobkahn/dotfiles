@@ -1,31 +1,33 @@
+if [[ "$OSTYPE" == "darwin"* ]]
+then
+    # alias `python` to Homebrew's python3
+    export PATH=/usr/local/opt/python/libexec/bin:$PATH
+fi
+
 # virtualenv
 virtualenv_path=$HOME/.virtualenvs
 
 if [ -d virtualenv_path ]
 then
-    export WORKON_HOME=$virtualenv_path
-    export VIRTUALENVWRAPPER_PYTHON=`which python3`
-    LOC1="/usr/local/bin/virtualenvwrapper.sh"
-    LOC2="/opt/homebrew/bin/virtualenvwrapper.sh"
-    if [ -f "$LOC1" ]
+    export VIRTUALENVWRAPPER_PYTHON=`which python`
+    export WORKON_HOME=$HOME/.virtualenvs
+    virtualenvwrapperlocs=("$HOME/Library/Python/3.7/bin/virtualenvwrapper.sh" "/usr/local/bin/virtualenvwrapper.sh" "/opt/homebrew/bin/virtualenvwrapper.sh")
+    found=false
+    for loc in "${virtualenvwrapperlocs[@]}"
+    do
+        if [ -f $loc ]
+        then
+            source "${loc}"
+            found=true
+    break
+        fi
+    done
+    if ! $found
     then
-        source "$LOC1"
-    elif [ -f "$LOC2" ]
-    then
-        source "$LOC2"
-    else
         echo "Could not find virtualenvwrapper.sh."
     fi
-    unset LOC1
-    unset LOC2
-    
-    # miniconda
-    if [ -d "$HOME/.miniconda3" ]
-    then
-        export PATH="$HOME/.miniconda3/bin:$PATH"
-        . $HOME/.miniconda3/etc/profile.d/conda.sh
-    conda activate
-    fi
+    unset locs
+    unset found
 fi
 
 unset virtualenv_path
