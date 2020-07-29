@@ -5,6 +5,7 @@
 
 # Used in emacs to set the load path
 DOTFILES_EMACS_INTEGRATIONS_DIR=$DOTFILES/emacs/integrations
+mkdir -p $DOTFILES_EMACS_INTEGRATIONS_DIR
 
 if [ ! -f $DOTFILES_EMACS_INTEGRATIONS_DIR/clang-format.el ]
 then
