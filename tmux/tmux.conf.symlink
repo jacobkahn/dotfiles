@@ -14,8 +14,8 @@ unbind %
 bind r source-file ~/.tmux.conf
 
 # Switch windows using modifier + (Shift + {Left, Right})
-bind-key S-Left next-window
-bind-key S-Right previous-window
+bind-key S-Right next-window
+bind-key S-Left previous-window
 
 # Switch panes via alt-arrow without prefix
 bind -n M-Left select-pane -L
