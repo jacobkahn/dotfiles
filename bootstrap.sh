@@ -34,11 +34,13 @@ error () {
 
 # Arguments
 INSTALL_DEPS=true;
+HARDCOPY_ALL=false;
 # Parse
 while [ "$#" -gt 0 ]; do
   case "$1" in
     # Don't install dependencies
     -n|--nodeps) INSTALL_DEPS=false; shift 1;;
+    -c|--copyall) HARDCOPY_ALL=true; shift 1;;
     -*) echo "unknown option: $1" >&2; exit 1;;
     *) handle_argument "$1"; shift 1;;
   esac
@@ -132,8 +134,16 @@ link_file () {
 
   if [ "$skip" != "true" ]  # "false" or empty
   then
-    ln -s "$1" "$2"
-    success "linked $1 to $2"
+    if [ "$HARDCOPY_ALL" == "false" ]
+    then
+      # symlink as usual
+      ln -s "$1" "$2"
+      success "linked $1 to $2"
+    else
+      # copy, don't symlink
+      cp "$1" "$2"
+      success "copied $1 to $2"
+    fi
   fi
 }
 
