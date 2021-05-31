@@ -1,7 +1,10 @@
 # shortcut to this dotfiles path is $DOTFILES
 export DOTFILES=$HOME/.dotfiles
 
-# projets folder
+# before we do anything else
+export EDITOR=emacs
+
+# projects folder
 export PROJECTS=~/Documents/Projects
 
 # Environment variables found in ~/.localrc that won't be pushed/public
