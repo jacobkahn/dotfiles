@@ -10,7 +10,7 @@ mkdir -p $DOTFILES_EMACS_INTEGRATIONS_DIR
 if [ ! -f $DOTFILES_EMACS_INTEGRATIONS_DIR/clang-format.el ]
 then
     # clang-format.el
-    get_clang_format="curl -fsSL https://llvm.org/svn/llvm-project/cfe/trunk/tools/clang-format/clang-format.el > $DOTFILES_EMACS_INTEGRATIONS_DIR/clang-format.el"
+    get_clang_format="curl -fsSL https://raw.githubusercontent.com/llvm-mirror/clang/master/tools/clang-format/clang-format.el > $DOTFILES_EMACS_INTEGRATIONS_DIR/clang-format.el"
     echo "› $get_clang_format"
     sh -c "$get_clang_format"
 else
