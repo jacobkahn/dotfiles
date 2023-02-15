@@ -2,7 +2,7 @@ cask_args appdir: '/Applications'
 
 tap 'homebrew/bundle'
 
-# Core system utils
+# Core system utils and dev
 brew 'ack'
 brew 'coreutils'
 brew 'htop'
@@ -10,14 +10,17 @@ brew 'openssl'
 brew 'readline'
 brew 'tmux'
 brew 'wget'
+brew 'emacs'
+brew 'mosh'
+brew 'gh'
 
 # Language tools
 brew 'python3'
-brew 'go'
+# brew 'go'
 # C/Cpp
 brew 'cmake'
 brew 'clang-format'
-brew 'folly'
+# brew 'folly'
 # Ruby
 brew 'ruby-build'
 brew 'rbenv'
@@ -25,18 +28,16 @@ brew 'rbenv'
 brew 'node'
 brew 'yarn'
 # Database
-brew 'mongodb'
-brew 'postgresql'
-brew 'mysql'
-brew 'redis'
-brew 'sqlite'
+# brew 'mongodb'
+# brew 'postgresql'
+# brew 'mysql'
+# brew 'redis'
+# brew 'sqlite'
 # Libraries
-brew 'opencv'
-brew 'eigen'
+# brew 'opencv'
+# brew 'eigen'
 # Other frameworks and tools
 brew 'imagemagick'
-brew 'hub'
-brew 'mosh'
 
 # Applications, from cask
 # cask 'atom'
